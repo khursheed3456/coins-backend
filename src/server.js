@@ -20,7 +20,7 @@ const fastify = Fastify({
   trustProxy: true,
 });
 
-CORS
+// CORS
 await fastify.register(cors, {
   origin: true,
   credentials: true,
