@@ -27,9 +27,13 @@ const fastify = Fastify({
 //   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
 // });
 
-await fastify.register(cors, {
-  origin: "*",
-  credentials: false,
+// await fastify.register(cors, {
+//   origin: "*",
+//   credentials: false,
+// });
+
+await fastify.register(require('@fastify/cors'), {
+  origin: true
 });
 
 // WebSocket support
