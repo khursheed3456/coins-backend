@@ -1,11 +1,10 @@
 import { Sequelize } from 'sequelize';
 import dotenv from 'dotenv';
 dotenv.config();
-
 let sequelize;
 
 if (process.env.NODE_ENV === 'production') {
-  sequelize = new Sequelize(process.env.SUPABASE_DB_URL, {
+  sequelize = new Sequelize(process.env.SUPABASE_DB_URL, {  
     dialect: 'postgres',
     dialectOptions: {
       ssl: {
