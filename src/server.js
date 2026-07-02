@@ -20,21 +20,21 @@ const fastify = Fastify({
   trustProxy: true,
 });
 
-// CORS
-// await fastify.register(cors, {
-//   origin: "*",
-//   credentials: true,
-//   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-// });
+CORS
+await fastify.register(cors, {
+  origin: true,
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+});
 
 // await fastify.register(cors, {
 //   origin: "*",
 //   credentials: false,
 // });
 
-await fastify.register(require('@fastify/cors'), {
-  origin: true
-});
+// await fastify.register(require('@fastify/cors'), {
+//   origin: true
+// });
 
 // WebSocket support
 await fastify.register(websocketPlugin);
