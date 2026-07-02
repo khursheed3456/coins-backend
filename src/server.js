@@ -23,7 +23,7 @@ const fastify = Fastify({
 // CORS
 await fastify.register(cors, {
   origin: true,
-  credentials: true,
+  credentials: false,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
 });
 
