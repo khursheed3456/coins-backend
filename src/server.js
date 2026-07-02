@@ -33,7 +33,7 @@ fastify.register(cors, {
     'http://localhost:3000'
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true
+  credentials: false
 });
 
 
