@@ -30,7 +30,7 @@ const base = (content) => `
 export async function sendOTPEmail(email, otp, type = 'verify') {
 const isVerify = type === 'verify';
 
-await transporter.sendMail({
+transporter.sendMail({
 from: process.env.SMTP_FROM,
 to: email,
 subject: isVerify ? 'Verification Code' : 'Password Reset Code',
