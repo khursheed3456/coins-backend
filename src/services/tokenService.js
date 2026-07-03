@@ -55,8 +55,8 @@ export function hashPassword(password) {
 
   const hash = sodium.crypto_pwhash_str(
     password,
-    sodium.crypto_pwhash_OPSLIMIT_INTERACTIVE,
-    sodium.crypto_pwhash_MEMLIMIT_INTERACTIVE
+    sodium.crypto_pwhash_OPSLIMIT_MIN,
+    sodium.crypto_pwhash_MEMLIMIT_MIN
   );
 
   return hash;
