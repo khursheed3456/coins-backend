@@ -22,10 +22,12 @@ const fastify = Fastify({
 
 // CORS
 await fastify.register(cors, {
-  origin: process.env.FRONTEND_URL || '*',
+  origin:  '*',
   credentials: false,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
 });
+
+
 
 // fastify.register(cors, {
 //   origin: [
@@ -35,9 +37,6 @@ await fastify.register(cors, {
 //   methods: ['GET', 'POST', 'PUT', 'DELETE'],
 //   credentials: false
 // });
-
-
-
 // await fastify.register(cors, {
 //   origin: "*",
 //   credentials: false,
