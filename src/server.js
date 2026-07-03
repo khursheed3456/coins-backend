@@ -21,20 +21,20 @@ const fastify = Fastify({
 });
 
 // CORS
-// await fastify.register(cors, {
-//   origin: process.env.FRONTEND_URL || '*',
-//   credentials: false,
-//   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-// });
-
-fastify.register(cors, {
-  origin: [
-    'https://coins-frontend.vercel.app',
-    'http://localhost:3000'
-  ],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: false
+await fastify.register(cors, {
+  origin: process.env.FRONTEND_URL || '*',
+  credentials: false,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
 });
+
+// fastify.register(cors, {
+//   origin: [
+//     'https://coins-frontend.vercel.app',
+//     'http://localhost:3000'
+//   ],
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//   credentials: false
+// });
 
 
 
