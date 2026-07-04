@@ -1,7 +1,7 @@
 import { User, Coin, Deposit, Withdrawal, Trade } from '../models/index.js';
 import { requireAdmin } from '../middleware/auth.js';
 import { initializeCoinPrice } from '../services/priceEngine.js';
-import { sendDepositNotification, sendWithdrawalNotification } from '../services/emailService.js';
+// import { sendDepositNotification, sendWithdrawalNotification } from '../services/emailService.js';
 import sequelize from '../config/database.js';
 import { hashPassword } from '../services/tokenService.js';
 import { Op } from 'sequelize';
@@ -78,7 +78,7 @@ export default async function adminRoutes(fastify) {
       await user.save({ transaction: t });
       await deposit.save({ transaction: t });
       await t.commit();
-      await sendDepositNotification(user.email, deposit.amount, 'approved').catch(() => {});
+      // await sendDepositNotification(user.email, deposit.amount, 'approved').catch(() => {});
       return reply.send({ message: 'Deposit approved', deposit });
     } catch (err) {
       await t.rollback();
@@ -96,7 +96,7 @@ export default async function adminRoutes(fastify) {
     deposit.processedAt = new Date();
     await deposit.save();
     const user = await User.findByPk(deposit.userId);
-    await sendDepositNotification(user.email, deposit.amount, 'rejected').catch(() => {});
+    // await sendDepositNotification(user.email, deposit.amount, 'rejected').catch(() => {});
     return reply.send({ message: 'Deposit rejected' });
   });
 
@@ -120,7 +120,7 @@ export default async function adminRoutes(fastify) {
     withdrawal.processedAt = new Date();
     await withdrawal.save();
     const user = await User.findByPk(withdrawal.userId);
-    await sendWithdrawalNotification(user.email, withdrawal.amount, 'approved').catch(() => {});
+    // await sendWithdrawalNotification(user.email, withdrawal.amount, 'approved').catch(() => {});
     return reply.send({ message: 'Withdrawal approved' });
   });
 
@@ -142,7 +142,7 @@ export default async function adminRoutes(fastify) {
       await withdrawal.save({ transaction: t });
       await t.commit();
       const user = await User.findByPk(withdrawal.userId);
-      await sendWithdrawalNotification(user.email, withdrawal.amount, 'rejected').catch(() => {});
+      // await sendWithdrawalNotification(user.email, withdrawal.amount, 'rejected').catch(() => {});
       return reply.send({ message: 'Withdrawal rejected' });
     } catch (err) {
       await t.rollback();
