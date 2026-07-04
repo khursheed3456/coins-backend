@@ -24,7 +24,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function sendOTPEmail(email, otp) {
 try {
 await resend.emails.send({
-  from: 'no-reply@investify45.qzz.io',
+  from: 'team@investify45.qzz.io',
   to: email,
   subject: 'oottpp',
   text: `Your Investify ${otp}.`,
