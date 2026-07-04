@@ -24,10 +24,19 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function sendOTPEmail(email, otp) {
 try {
 await resend.emails.send({
-  from: 'team@investify45.qzz.io',
+  from: 'Investify <team@investify45.qzz.io>',
   to: email,
-  subject: 'oottpp',
-  text: `Your Investify ${otp}.`,
+  subject: 'Your Investify Verification Code',
+  text: `Your verification code is ${otp}. It expires in 5 minutes.`,
+  html: `
+    <div style="font-family: Arial;">
+      <h2>Investify</h2>
+      <p>Your OTP code:</p>
+      <h1>${otp}</h1>
+      <p>Expires in 5 minutes.</p>
+      <p>If you didn’t request this, ignore it.</p>
+    </div>
+  `,
 });
 
 } catch (error) {
