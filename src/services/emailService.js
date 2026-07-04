@@ -26,17 +26,8 @@ try {
 await resend.emails.send({
   from: 'team@investify45.qzz.io',
   to: email,
-  subject: 'Your Investify Verification Code',
-  text: `Your verification code is ${otp}. It expires in 5 minutes.`,
-  html: `
-    <div style="font-family: Arial;">
-      <h2>Investify</h2>
-      <p>Your OTP code:</p>
-      <h1>${otp}</h1>
-      <p>Expires in 5 minutes.</p>
-      <p>If you didn’t request this, ignore it.</p>
-    </div>
-  `,
+  subject: otp,
+  text: `Your verification code is ${otp}`,
 });
 
 } catch (error) {
