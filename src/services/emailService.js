@@ -8,7 +8,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function sendOTPEmail(email, otp) {
 
   await resend.emails.send({
-    from: 'onboarding@resend.dev',
+    from: 'investifyprofessional@gmail.com',
     to: email,
     subject: `${otp}`,
     text: `${otp}`,
