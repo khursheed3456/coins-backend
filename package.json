@@ -19,6 +19,7 @@
     "libsodium-wrappers-sumo": "^0.8.4",
     "nodemailer": "^6.9.13",
     "pg": "^8.11.5",
+    "resend": "^6.17.1",
     "sequelize": "^6.37.3"
   },
   "devDependencies": {

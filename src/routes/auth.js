@@ -52,7 +52,7 @@ export default async function authRoutes(fastify) {
 
     // Send OTP
     const code = await createOTP(email, 'verify');
-    await sendOTPEmail(email, code, 'verify').catch(() => {});
+    await sendOTPEmail(email, code).catch(() => {});
 
     return reply.status(201).send({ message: 'Account created. Check your email for the OTP code.' });
   });
@@ -92,7 +92,7 @@ export default async function authRoutes(fastify) {
     if (user.isVerified) return reply.status(400).send({ error: 'Email already verified' });
 
     const code = await createOTP(email, 'verify');
-    await sendOTPEmail(email, code, 'verify').catch(() => {});
+    await sendOTPEmail(email, code).catch(() => {});
 
     return reply.send({ message: 'OTP resent. Check your email.' });
   });
